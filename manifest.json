@@ -1,0 +1,21 @@
+{
+  "name": "MS Studio",
+  "short_name": "MS Studio",
+  "description": "Premium Cinematic Wedding Photography and Videography",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#050507",
+  "theme_color": "#ba2330",
+  "icons": [
+    {
+      "src": "./msstudio.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./msstudio.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
