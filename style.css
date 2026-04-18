@@ -141,6 +141,7 @@ nav ul li a:hover::after, nav ul li a.active::after { transform: scaleX(1); }
     position: absolute; inset: 0;
     background: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
     transform: scale(1.05);
+    will-change: transform;
     animation: heroZoom 30s infinite alternate ease-in-out;
 }
 
@@ -410,9 +411,15 @@ section {
 /* ===== TESTIMONIAL DIVIDER ===== */
 .parallax-divider {
     height: 55vh; min-height: 400px;
-    background: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2000&q=80') center/cover fixed;
+    background: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
     display: flex; align-items: center; justify-content: center;
     position: relative;
+}
+
+@media (min-width: 992px) {
+    .parallax-divider {
+        background-attachment: fixed;
+    }
 }
 
 .parallax-divider::after {
