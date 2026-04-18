@@ -269,22 +269,23 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Active Nav on Scroll
+        // Active Nav on Scroll (Optimized)
         const sections = document.querySelectorAll('section');
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                if (scrollY >= section.offsetTop - 200) {
-                    current = section.getAttribute('id');
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').includes(id)) {
+                            link.classList.add('active');
+                        }
+                    });
                 }
             });
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
-                }
-            });
-        });
+        }, { threshold: 0.3, rootMargin: "-100px 0px -100px 0px" });
+
+        sections.forEach(section => navObserver.observe(section));
 
         // PWA Service Worker
         if ('serviceWorker' in navigator) {
