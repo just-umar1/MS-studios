@@ -140,14 +140,13 @@ nav ul li a:hover::after, nav ul li a.active::after { transform: scaleX(1); }
 .hero-bg {
     position: absolute; inset: 0;
     background: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
-    transform: scale(1.05);
-    will-change: transform;
+    transform: scale(1.15);
     animation: heroZoom 30s infinite alternate ease-in-out;
 }
 
 @keyframes heroZoom {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.1); }
+    0% { transform: scale(1.15); }
+    100% { transform: scale(1.05); }
 }
 
 .hero-overlay {
